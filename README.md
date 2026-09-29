@@ -42,11 +42,44 @@ chmod +x robot_startup.sh
 
 ### Session 2 - Shape Your Robot in Simulation
 
-To be completed.
+#### Overview
+
+During this session, we created the MAT robot model using URDF. The model consists of a rectangular chassis, two continuous drive wheels, a fixed caster wheel, and a `base_footprint` frame. We visualized and inspected the completed robot in RViz2.
+
+#### How to Run
+
+From the root directory of the repository:
+
+```bash
+ros2 launch urdf_tutorial display.launch.py model:=$(pwd)/session2/mat.urdf
+```
+
+In RViz2, set `Global Options` → `Fixed Frame` to `base_footprint`.
 
 ### Session 3 - Build the Foundations of Your Robot
 
-To be completed.
+#### Overview
+
+During this session, we created the first Python controller for the MAT robot. The controller reads simulated left, front, and right ultrasonic sensor measurements and uses conditional statements to select an autonomous movement command. Depending on the available space, the robot moves forward, changes lanes, or stops. The algorithm was tested in both Test mode and Game mode using the Robot Run simulator.
+
+#### How to Run
+
+From the root directory of the repository:
+
+```bash
+cd session3
+python3 mat_brain.py
+```
+
+Simulator controls:
+
+- `T` — open Test mode.
+- `G` — open Game mode.
+- `Space` — generate a test situation or start the challenge.
+- `R` — reset the current mode.
+- `Esc` — close the simulator.
+
+### Session 4 - Bring Your Robot to Life
 
 ### Session 4 - Bring Your Robot to Life
 
