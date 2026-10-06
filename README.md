@@ -13,10 +13,33 @@
 
 ```text
 .
-└── README.md
-└──session1
-      └──robot_startup.sh
-      └──team_info.txt
+├── README.md
+├── session1
+│   ├── robot_startup.sh
+│   └── team_info.txt
+├── session2
+│   └── mat.urdf
+├── session3
+│   ├── mat_brain.py
+│   ├── robot_arcade
+│   │   ├── __init__.py
+│   │   ├── constants.py
+│   │   ├── game.py
+│   │   ├── sensors.py
+│   │   └── assets
+│   │       └── upc_logo.png
+│   └── MAT_description
+│       ├── CMakeLists.txt
+│       ├── package.xml
+│       ├── launch
+│       │   └── display.launch.py
+│       ├── rviz
+│       │   └── urdf_config.rviz
+│       └── urdf
+│           └── mat.urdf
+└── session4
+    ├── start_container.sh
+    └── enter_container.sh
 ```
 
 ---
@@ -79,11 +102,36 @@ Simulator controls:
 - `R` — reset the current mode.
 - `Esc` — close the simulator.
 
-### Session 4 - Bring Your Robot to Life
 
 ### Session 4 - Bring Your Robot to Life
 
-To be completed.
+#### Overview
+
+During this session, we learned how to use Docker images and containers to create an isolated and reproducible robotics environment. We started the `intelligent-robotics` container and created helper scripts for starting the container and opening additional terminal sessions inside it.
+
+#### Docker Commands
+
+- `docker images` — displays the available Docker images.
+- `docker run` — creates and starts a new container.
+- `docker ps -a` — displays running and stopped containers.
+- `docker rm` — removes a stopped container.
+- `docker exec` — opens an additional terminal inside a running container.
+
+#### How to Run
+
+Start the robotics container:
+
+```bash
+cd session4
+./start_container.sh
+```
+
+From another Ubuntu terminal, enter the running container:
+
+```bash
+cd session4
+./enter_container.sh
+```
 
 ### Session 5 - Connect the Mind of Your Robot
 
