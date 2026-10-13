@@ -20,6 +20,20 @@
             <origin xyz="0 0 0.1" rpy="0 0 0"/>
             <material name="blue"/>
         </visual>
+        
+        <inertial>
+            <origin xyz="0 0 0.1" rpy="0 0 0" />
+            <mass value="5" />
+            <inertia ixx="0.083" ixy="0" ixz="0"
+                    iyy="0.167" iyz="0"
+                    izz="0.217" />
+        </inertial>
+        <collision>
+            <geometry>
+                <box size="0.6 0.4 0.2" />
+            </geometry>
+            <origin xyz="0 0 0.1" rpy="0 0 0" />
+        </collision>
     </link>
 
     <link name="right_wheel_link">
@@ -31,6 +45,20 @@
             <origin xyz="0 0 0" rpy="1.5708 0 0"/>
             <material name="semi_green"/>
         </visual>
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="1.5708 0 0" />
+            <mass value="1" />
+            <inertia ixx="0.002708" ixy="0" ixz="0"
+                    iyy="0.002708" iyz="0"
+                    izz="0.005" />
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+            <geometry>
+                <cylinder radius="0.1" length="0.05"/>
+            </geometry>
+        </collision>      
     </link>
 
     <link name="left_wheel_link">
@@ -42,6 +70,20 @@
             <origin xyz="0 0 0" rpy="1.5708 0 0"/>
             <material name="semi_green"/>
         </visual>
+        <inertial>
+            <origin xyz="0 0 0" rpy="1.5708 0 0" />
+            <mass value="1" />
+            <inertia ixx="0.002708" ixy="0" ixz="0"
+                    iyy="0.002708" iyz="0"
+                    izz="0.005" />
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+            <geometry>
+                <cylinder radius="0.1" length="0.05"/>
+            </geometry>
+        </collision>    
+        
     </link>
 
     <link name="caster_wheel_link">
@@ -53,6 +95,19 @@
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <material name="semi_green"/>
         </visual>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.5" />
+            <inertia ixx="0.0005" ixy="0" ixz="0"
+                    iyy="0.0005" iyz="0"
+                    izz="0.0005" />
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.05"/>
+            </geometry>
+        </collision>    
     </link>
 
     <joint name="base_right_wheel_joint" type="continuous">
@@ -82,4 +137,53 @@
         <origin xyz="0 0 0.1" rpy="0 0 0"/>
         <axis xyz="0 1 0"/>
     </joint>
+
+    <gazebo reference = "base_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference = "right_wheel_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference = "left_wheel_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference = "caster_wheel_link">
+        <material>Gazebo/Black</material>
+        <mu1 value="0.1"/>
+        <mu2 value="0.1"/>
+    </gazebo>
+
+
+
+<gazebo>
+  <plugin
+    name="diff_drive_controller"
+    filename="libgazebo_ros_diff_drive.so">
+ 
+    <!-- Update rate in Hz -->
+    <update_rate>50</update_rate>
+ 
+    <!-- Wheels -->
+    <left_joint>base_left_wheel_joint</left_joint>
+    <right_joint>base_right_wheel_joint</right_joint>
+ 
+    <!-- Kinematics -->
+    <wheel_separation>0.45</wheel_separation>
+    <wheel_diameter>0.2</wheel_diameter>
+ 
+    <!-- Output -->
+    <publish_odom>true</publish_odom>
+    <publish_odom_tf>true</publish_odom_tf>
+    <publish_wheel_tf>true</publish_wheel_tf>
+    <odometry_topic>odom</odometry_topic>
+    <odometry_frame>odom</odometry_frame>
+    <robot_base_frame>base_footprint</robot_base_frame>
+ 
+  </plugin>
+</gazebo>
+
+
 </robot>
