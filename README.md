@@ -37,9 +37,17 @@
 │       │   └── urdf_config.rviz
 │       └── urdf
 │           └── mat.urdf
-└── session4
-    ├── start_container.sh
-    └── enter_container.sh
+├── session4
+│   ├── start_container.sh
+│   ├── enter_container.sh
+│   └── mat_bringup
+│       ├── CMakeLists.txt
+│       ├── package.xml
+│       └── launch
+│           └── mat.launch.py
+└── session5
+    └── mat_brain.py
+
 ```
 
 ---
@@ -107,35 +115,86 @@ Simulator controls:
 
 #### Overview
 
-During this session, we learned how to use Docker images and containers to create an isolated and reproducible robotics environment. We started the `intelligent-robotics` container and created helper scripts for starting the container and opening additional terminal sessions inside it.
+During this session, we used Docker to run ROS 2 and Gazebo in a reproducible environment. We created scripts for starting the `intelligent-robotics` container and opening additional terminals inside it.
+
+We extended the MAT URDF model with mass and inertia properties, collision geometry, and Gazebo materials. We created the `mat_bringup` package with a launch file that starts Gazebo, opens RViz2, and spawns the robot.
+
+We added a differential-drive plugin to control the wheels through `/cmd_vel` and publish odometry through `/odom`. We tested keyboard control using `teleop_twist_keyboard` and reduced the caster wheel friction to improve movement.
 
 #### Docker Commands
 
-- `docker images` — displays the available Docker images.
-- `docker run` — creates and starts a new container.
-- `docker ps -a` — displays running and stopped containers.
-- `docker rm` — removes a stopped container.
-- `docker exec` — opens an additional terminal inside a running container.
+- `docker images` — list available images.
+- `docker ps` — list running containers.
+- `docker ps -a` — list running and stopped containers.
+- `docker run` — create and start a container.
+- `docker exec` — run a command or open a terminal inside a running container.
 
 #### How to Run
 
-Start the robotics container:
+Start the container from an Ubuntu terminal:
 
 ```bash
-cd session4
+cd ~/ir_ws/src/session4
 ./start_container.sh
 ```
 
-From another Ubuntu terminal, enter the running container:
+Inside the container, build the packages and launch the simulation:
 
 ```bash
-cd session4
+cd ~/ir_ws
+colcon build --packages-select MAT_description mat_bringup
+source install/setup.bash
+ros2 launch mat_bringup mat.launch.py
+```
+
+Keep the simulation running. Open another Ubuntu terminal and enter the same container:
+
+```bash
+cd ~/ir_ws/src/session4
 ./enter_container.sh
 ```
 
+Inside this second container terminal, start keyboard control:
+
+```bash
+source ~/ir_ws/install/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+
+Keep the keyboard focus on the teleop terminal when sending commands:
+
+- `i` — move forward.
+- `,` — move backward.
+- `j` — turn left.
+- `l` — turn right.
+- `k` — stop.
+
+Use `Ctrl+C` in each terminal to stop the corresponding program.
+
 ### Session 5 - Connect the Mind of Your Robot
 
-To be completed.
+#### Part 1 - Python Classes
+
+We refactored the MAT controller from Session 3 into a Python class called
+`RobotBrain`, preserving the original decision algorithm and distance thresholds.
+
+The class stores the robot information, sensor measurements and thresholds
+as attributes. The `get_sensor_data()` method updates and displays the
+measurements, `decide_action()` selects a movement, and `process_scan()`
+connects both methods and returns the selected action to Robot Run.
+
+#### How to Run
+
+Run from an Ubuntu terminal:
+
+```bash
+cd ~/ir_ws/src/session5
+export PYTHONPATH="$HOME/ir_ws/src/session3:$PYTHONPATH"
+python3 mat_brain.py
+```
+
+The `PYTHONPATH` command must be repeated in each new terminal.
+
 
 ### Session 6 - Bring Intelligence to Your Robot
 
