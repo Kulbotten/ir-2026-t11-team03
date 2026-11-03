@@ -1,6 +1,7 @@
 import os
  
 from ament_index_python.packages import get_package_share_directory
+from ament_index_python.packages import get_package_share_path
 from launch import LaunchDescription
 from launch.actions import ExecuteProcess
 from launch_ros.actions import Node
@@ -47,10 +48,15 @@ def generate_launch_description():
         output="screen",
     )
  
+    bringup_pkg = get_package_share_path('mat_bringup')
+    world_path = os.path.join(bringup_pkg, 'worlds', 'maze_1.world' )
+
+    
     gazebo = ExecuteProcess(
         cmd=[
             "gazebo",
             "--verbose",
+            world_path,
             "-s",
             "libgazebo_ros_factory.so",
         ],
@@ -68,6 +74,7 @@ def generate_launch_description():
         ],
         output="screen",
     )
+
  
     return LaunchDescription([
         robot_state_publisher,
