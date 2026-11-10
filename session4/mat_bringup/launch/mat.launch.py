@@ -48,8 +48,9 @@ def generate_launch_description():
         output="screen",
     )
  
-    bringup_pkg = get_package_share_path('mat_bringup')
-    world_path = os.path.join(bringup_pkg, 'worlds', 'maze_1.world' )
+    bringup_pkg = get_package_share_path("mat_bringup")
+
+    world_path = os.path.join(bringup_pkg, "worlds", "maze_1.world" )
 
     
     gazebo = ExecuteProcess(

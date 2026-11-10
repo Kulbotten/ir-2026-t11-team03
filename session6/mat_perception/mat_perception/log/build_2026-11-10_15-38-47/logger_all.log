@@ -1,0 +1,78 @@
+[0.061s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--build-base', 'build_lab', '--install-base', 'install_lab', '--paths', 'src/session3/MAT_description', 'src/session4/mat_bringup', 'src/session6/mat_perception']
+[0.061s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/build_lab', install_base='/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/install_lab', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=12, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=['/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session3/MAT_description', '/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session4/mat_bringup', '/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session6/mat_perception'], packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7ec341d24d60>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7ec341d24910>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7ec341d24910>>)
+[0.156s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.156s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.156s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.156s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.156s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.156s] Level 1:colcon.colcon_core.package_discovery:PathPackageDiscovery.discover(['/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session3/MAT_description', '/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session4/mat_bringup', '/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session6/mat_perception'])
+[0.156s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session3/MAT_description) by extensions ['ignore', 'ignore_ament_install']
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session3/MAT_description) by extension 'ignore'
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session3/MAT_description) by extension 'ignore_ament_install'
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session3/MAT_description) by extensions ['colcon_pkg']
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session3/MAT_description) by extension 'colcon_pkg'
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session3/MAT_description) by extensions ['colcon_meta']
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session3/MAT_description) by extension 'colcon_meta'
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session3/MAT_description) by extensions ['ros']
+[0.157s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session3/MAT_description) by extension 'ros'
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session3/MAT_description) by extensions ['cmake', 'python']
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session3/MAT_description) by extension 'cmake'
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session3/MAT_description) by extension 'python'
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session3/MAT_description) by extensions ['python_setup_py']
+[0.166s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session3/MAT_description) by extension 'python_setup_py'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session4/mat_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session4/mat_bringup) by extension 'ignore'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session4/mat_bringup) by extension 'ignore_ament_install'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session4/mat_bringup) by extensions ['colcon_pkg']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session4/mat_bringup) by extension 'colcon_pkg'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session4/mat_bringup) by extensions ['colcon_meta']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session4/mat_bringup) by extension 'colcon_meta'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session4/mat_bringup) by extensions ['ros']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session4/mat_bringup) by extension 'ros'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session4/mat_bringup) by extensions ['cmake', 'python']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session4/mat_bringup) by extension 'cmake'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session4/mat_bringup) by extension 'python'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session4/mat_bringup) by extensions ['python_setup_py']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session4/mat_bringup) by extension 'python_setup_py'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session6/mat_perception) by extensions ['ignore', 'ignore_ament_install']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session6/mat_perception) by extension 'ignore'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session6/mat_perception) by extension 'ignore_ament_install'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session6/mat_perception) by extensions ['colcon_pkg']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session6/mat_perception) by extension 'colcon_pkg'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session6/mat_perception) by extensions ['colcon_meta']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session6/mat_perception) by extension 'colcon_meta'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session6/mat_perception) by extensions ['ros']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session6/mat_perception) by extension 'ros'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session6/mat_perception) by extensions ['cmake', 'python']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session6/mat_perception) by extension 'cmake'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session6/mat_perception) by extension 'python'
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session6/mat_perception) by extensions ['python_setup_py']
+[0.167s] Level 1:colcon.colcon_core.package_identification:_identify(/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/src/session6/mat_perception) by extension 'python_setup_py'
+[0.167s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.180s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.180s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.181s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 3 installed packages in /home/ir-26-t11/ir_ws/install_lab
+[0.182s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 5 installed packages in /home/ir-26-t11/ir_ws/install
+[0.183s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 315 installed packages in /opt/ros/humble
+[0.190s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.213s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.214s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.214s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[0.214s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[0.214s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[0.214s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[0.217s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[0.217s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[0.217s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[0.224s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[0.225s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.225s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/install_lab/local_setup.ps1'
+[0.226s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/install_lab/_local_setup_util_ps1.py'
+[0.226s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/install_lab/setup.ps1'
+[0.227s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/install_lab/local_setup.sh'
+[0.228s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/install_lab/_local_setup_util_sh.py'
+[0.228s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/install_lab/setup.sh'
+[0.229s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/install_lab/local_setup.bash'
+[0.229s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/install_lab/setup.bash'
+[0.229s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/install_lab/local_setup.zsh'
+[0.230s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ir-26-t11/ir_ws/src/session6/mat_perception/mat_perception/install_lab/setup.zsh'
