@@ -43,10 +43,26 @@
 │   └── mat_bringup
 │       ├── CMakeLists.txt
 │       ├── package.xml
-│       └── launch
-│           └── mat.launch.py
-└── session5
-    └── mat_brain.py
+│       ├── launch
+│       │   └── mat.launch.py
+│       └── worlds
+│           ├── maze_1.world
+│           ├── maze_2.world
+│           └── maze_3.world
+├── session5
+│   ├── mat_brain.py
+│   ├── mat_control
+│   │   ├── package.xml
+│   │   ├── setup.py
+│   │   └── mat_control
+│   │       └── mat_brain.py
+│   └── robot_run_ros
+└── session6
+    └── mat_perception
+        ├── package.xml
+        ├── setup.py
+        └── mat_perception
+            └── sensor_monitor.py
 
 ```
 
@@ -195,12 +211,94 @@ python3 mat_brain.py
 
 The `PYTHONPATH` command must be repeated in each new terminal.
 
+#### Part 2 - ROS 2 Communication
+
+We converted `RobotBrain` into a ROS 2 node in the `mat_control` package.
+Robot Run publishes three virtual distance measurements on `/scan` as
+`LaserScan` messages. The controller uses the original decision algorithm
+to select an action and sends the corresponding velocity to Robot Run on
+`/cmd_vel` as a `Twist` message.
+
+To build both packages on Ubuntu with ROS 2 Humble:
+
+```bash
+cd ~/ir_ws
+source /opt/ros/humble/setup.bash
+colcon build --build-base build_s5 --install-base install_s5 \
+  --paths src/session5/robot_run_ros src/session5/mat_control
+```
+
+In the first terminal, launch Robot Run:
+
+```bash
+source ~/ir_ws/install_s5/setup.bash
+ros2 launch robot_run_ros robot_run.launch.py robot_name:=MAT team_number:=3
+```
+
+In the second terminal, run the controller:
+
+```bash
+source ~/ir_ws/install_s5/setup.bash
+ros2 run mat_control mat_brain
+```
+
+In the Robot Run window, press `T` for Test mode or `G` for Game mode,
+then press `Space`.
 
 ### Session 6 - Bring Intelligence to Your Robot
 
-To be completed.
+#### Overview
 
----
+We added three project worlds to `mat_bringup` and configured the launch
+file to start MAT in `maze_1.world`. The launch starts the Gazebo server
+and RViz2, spawns MAT, and then opens the Gazebo window. It sets a shared
+local connection and an isolated Ignition partition for the Gazebo server
+and client.
+
+We added a simulated LiDAR to MAT. It publishes a 360-sample scan on
+`/scan` at 10 Hz. The `sensor_monitor` node in `mat_perception` filters
+invalid and out-of-range readings and reports the nearest valid distance
+in the left, front, and right sectors. We tested the monitor while
+driving MAT through the maze with keyboard teleoperation.
+
+#### How to Run
+
+On Ubuntu with ROS 2 Humble and Gazebo Classic, build the packages from
+the workspace root. Repeat the build after changing the source files.
+
+```bash
+cd ~/ir_ws
+source /opt/ros/humble/setup.bash
+colcon build --build-base build_s6_check --install-base install_s6_check \
+  --paths src/session3/MAT_description src/session4/mat_bringup src/session6/mat_perception
+```
+
+In the first terminal, launch the simulation:
+
+```bash
+source ~/ir_ws/install_s6_check/setup.bash
+ros2 launch mat_bringup mat.launch.py
+```
+
+In RViz2, add a `LaserScan` display and select `/scan` as its topic.
+
+In a second terminal, run the LiDAR monitor:
+
+```bash
+source ~/ir_ws/install_s6_check/setup.bash
+ros2 run mat_perception sensor_monitor
+```
+
+In a third terminal, start keyboard control:
+
+```bash
+source ~/ir_ws/install_s6_check/setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+
+Keep the keyboard focus on the teleop terminal. Press `i` to move forward,
+`,` to move backward, `j` or `l` to turn, and `k` to stop. Watch the
+`LEFT`, `FRONT`, and `RIGHT` readings change as MAT moves.
 
 ## Project
 
